@@ -23,3 +23,8 @@
 hs_err_pid*
 replay_pid*
 workspace
+*.iml
+*.DS_Store
+*.xml
+*.idea
+out
