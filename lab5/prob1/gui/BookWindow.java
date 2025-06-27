@@ -17,9 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import lab5.prob1.rulesets.BookRuleSet;
 import lab5.prob1.rulesets.RuleException;
-import lab5.prob1.rulesets.RuleSet;
 import lab5.prob1.rulesets.RuleSetFactory;
 
 public class BookWindow extends JFrame {
@@ -47,46 +45,46 @@ public class BookWindow extends JFrame {
 		isbnLabel.setFont(makeSmallFont(isbnLabel.getFont()));
 		isbnField = new JTextField(12);
 		JPanel isbnPanel = createTextPanel(isbnLabel, isbnField);
-		
-		
+
+
 		JLabel titleLabel = new JLabel("Title");
 		titleLabel.setFont(makeSmallFont(titleLabel.getFont()));
 		titleField = new JTextField(12);
 		JPanel titlePanel = createTextPanel(titleLabel, titleField);
-		
+
 		JLabel priceLabel = new JLabel("Price");
 		priceLabel.setFont(makeSmallFont(priceLabel.getFont()));
 		priceField = new JTextField(12);
 		JPanel pricePanel = createTextPanel(priceLabel, priceField);
-		
-		
-		
+
+
+
 		topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		topPanel.add(isbnPanel);
 		topPanel.add(titlePanel);
 		topPanel.add(pricePanel);
-		
+
 	}
-	
+
 	private void defineBottomPanel() {
 		bottomPanel = new JPanel();
 		bottomPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		button = new JButton("Update Info");
 		button.addActionListener(new ButtonListener());
 		bottomPanel.add(button);
-		
+
 	}
 	private static JPanel createTextPanel(JLabel lab, JTextField textField) {
-		
+
 		JPanel top = new JPanel();
 		JPanel bottom = new JPanel();
 		top.setLayout(new FlowLayout(FlowLayout.LEFT,5,0));
-		bottom.setLayout(new FlowLayout(FlowLayout.LEFT,5,0));		
-		
-		
+		bottom.setLayout(new FlowLayout(FlowLayout.LEFT,5,0));
+
+
 		top.add(lab);
 		bottom.add(textField);
-		
+
 		JPanel textPanel = new JPanel();
 		textPanel.setLayout(new BorderLayout());
 		textPanel.add(top,BorderLayout.NORTH);
@@ -94,7 +92,7 @@ public class BookWindow extends JFrame {
 		return textPanel;
 	}
 	private void initializeWindow() {
-		setTitle("Add Book to Collection");		
+		setTitle("Add Book to Collection");
 		setSize(520,180);
 		handleWindowClosing();
 		centerFrameOnDesktop(this);
@@ -111,7 +109,7 @@ public class BookWindow extends JFrame {
 				//other clean-up
                 System.exit(0);
            }
-        }); 				
+        });
 	}
 	private void clearFields() {
 		isbnField.setText("");
@@ -133,7 +131,7 @@ public class BookWindow extends JFrame {
 	}
 	class BackListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt){
-			
+
 		}
 	}
 	public static void centerFrameOnDesktop(Component f) {
@@ -143,7 +141,7 @@ public class BookWindow extends JFrame {
 	        int width  = toolkit.getScreenSize().width;
 	        int frameHeight = f.getSize().height;
 	        int frameWidth  = f.getSize().width;
-	        f.setLocation(((width-frameWidth)/2)-SHIFT_AMOUNT, (height-frameHeight)/3);    
+	        f.setLocation(((width-frameWidth)/2)-SHIFT_AMOUNT, (height-frameHeight)/3);
 	    }
 	public String getIsbnValue() {
 		return isbnField.getText();
@@ -154,7 +152,7 @@ public class BookWindow extends JFrame {
 	public String getPriceValue() {
 		return priceField.getText();
 	}
-	
+
 	public static void main(String[] args){
 		BookWindow mf = new BookWindow();
 		//mf.pack();

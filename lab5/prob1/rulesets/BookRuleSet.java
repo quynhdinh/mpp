@@ -25,7 +25,6 @@ public class BookRuleSet implements RuleSet {
 			if (isbn.isEmpty() || w.getPriceValue().isEmpty() || w.getTitleValue().isEmpty())
 				throw new RuleException("All fields must be nonempty");
 
-			System.out.println(isbn + " / " + isbn.length());
 			if (!isbn.matches("[0-9]+") || (isbn.length() != 10 && isbn.length() != 13))
 				throw new RuleException("Isbn must be numeric and consist of either 10 or 13 characters");
 

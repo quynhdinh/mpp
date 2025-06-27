@@ -11,7 +11,6 @@ final public class RuleSetFactory {
 	static {
 		map.put(BookWindow.class, new BookRuleSet());
 		map.put(CDWindow.class, new CDRuleSet());
-		System.out.println(map.size());
 	}
 	private RuleSetFactory() {}
 }
