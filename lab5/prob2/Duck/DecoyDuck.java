@@ -8,7 +8,6 @@ public class DecoyDuck extends Duck {
         this.flyBehavior = new CannotFly();
         this.quackBehavior = new MuteQuack();
     }
-
     @Override
     public void display() {
         System.out.println("Decoy:");

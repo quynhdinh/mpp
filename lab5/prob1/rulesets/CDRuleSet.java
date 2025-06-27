@@ -32,5 +32,4 @@ public class CDRuleSet implements RuleSet {
 			throw new RuleException(e.getMessage());
 		}
 	}
-
 }

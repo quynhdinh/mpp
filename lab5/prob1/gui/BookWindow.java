@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import lab5.prob1.rulesets.BookRuleSet;
 import lab5.prob1.rulesets.RuleException;
 import lab5.prob1.rulesets.RuleSet;
+import lab5.prob1.rulesets.RuleSetFactory;
 
 public class BookWindow extends JFrame {
 	private JPanel topPanel;
@@ -28,7 +29,6 @@ public class BookWindow extends JFrame {
 	private JTextField isbnField;
 	private JTextField titleField;
 	private JTextField priceField;
-	private RuleSet ruleSet;
 	private static final long serialVersionUID = 1L;
 	public BookWindow() {
 		initializeWindow();
@@ -39,7 +39,6 @@ public class BookWindow extends JFrame {
 		mainPanel.add(topPanel, BorderLayout.NORTH);
 		mainPanel.add(bottomPanel, BorderLayout.SOUTH);
 		getContentPane().add(mainPanel);
-		ruleSet = new BookRuleSet();
 		pack();
 	}
 	private void defineTopPanel() {
@@ -123,7 +122,7 @@ public class BookWindow extends JFrame {
 		public void actionPerformed(ActionEvent evt){
 			boolean ok = true;
 			try {
-				ruleSet.applyRules(BookWindow.this);
+				RuleSetFactory.map.get(BookWindow.class).applyRules(BookWindow.this);
 			} catch (RuleException e) {
 				ok = false;
 				JOptionPane.showMessageDialog(BookWindow.this, "Error: " + e.getMessage());

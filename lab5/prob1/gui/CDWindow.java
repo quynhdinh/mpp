@@ -17,9 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import lab5.prob1.rulesets.CDRuleSet;
 import lab5.prob1.rulesets.RuleException;
-import lab5.prob1.rulesets.RuleSet;
+import lab5.prob1.rulesets.RuleSetFactory;
 
 public class CDWindow extends JFrame {
 	private JPanel topPanel;
@@ -29,7 +28,6 @@ public class CDWindow extends JFrame {
 	private JTextField titleField;
 	private JTextField priceField;
 	private static final long serialVersionUID = 1L;
-	private RuleSet ruleSet;
 	public CDWindow() {
 		initializeWindow();
 		JPanel mainPanel = new JPanel();
@@ -39,7 +37,6 @@ public class CDWindow extends JFrame {
 		mainPanel.add(topPanel, BorderLayout.NORTH);
 		mainPanel.add(bottomPanel, BorderLayout.SOUTH);
 		getContentPane().add(mainPanel);
-		ruleSet = new CDRuleSet();
 		pack();
 	}
 	private void defineTopPanel() {
@@ -122,7 +119,7 @@ public class CDWindow extends JFrame {
 		public void actionPerformed(ActionEvent evt){
 			boolean ok = true;
 			try {
-				ruleSet.applyRules(CDWindow.this);
+				RuleSetFactory.map.get(CDWindow.class).applyRules(CDWindow.this);
 			} catch (RuleException e) {
 				ok = false;
 				JOptionPane.showMessageDialog(CDWindow.this, "Error: " + e.getMessage());
